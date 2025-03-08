@@ -1,0 +1,74 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>添加公告</title>
+		<style>/
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			html{
+				height: 100%
+			}
+			body{
+				background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+			}
+			textarea{
+				width:100%;
+				height: 777px;
+				font-size: 30px;
+				color: blue;
+			}
+			button{
+				font-size: 30px;
+				font-weight: 900;
+				padding: 10px;
+				float: right;
+			}
+		</style>
+	</head>
+	<body>
+		<div style="font-size:30px;font-weight: 900;">输入你要发布的公告:</divs>
+		<center>
+		<textarea id='text'></textarea>
+		<br/>
+		</center>
+		<button onClick="fb();">发布公告</button> 
+		 <button onClick="qx();">取消发布</button>
+		<button  style="float: left;" onClick="tjtp();">添加图片</button>
+		<button  style="float: left;" onClick="tjsp();">添加视频</button>
+		<script>
+			function qx(){
+				if (confirm("您确定要关闭本页吗？")) { 
+				history.go(-1);
+				}
+			}
+			function fb(){
+				var text=document.getElementById('text');
+				if(text.value==""){
+					alert("需要发布公告内容还没有输入呢！无法发布公告！");
+				}else{
+					var text=document.getElementById('text');
+					//alert(text.value);
+					window.location.replace("../api/tj.php?wan=2&text="+text.value);
+				}
+			}
+			function tjtp(){
+				var tplj=prompt("请输入图片链接！");
+				if(tplj){
+					var text=document.getElementById('text');
+					text.value=text.value + '<img width="330px" src="'+tplj+'" />';
+				}
+			}
+			function tjsp(){
+				var splj=prompt("请输入图片链接！");
+				if(splj){
+					var text=document.getElementById('text');
+					text.value=text.value + '<video src="'+splj+'" type="video/mp4" width="100%" controls="controls">樱花表白墙</video>';
+				}
+			}
+		</script>
+	</body>
+</html>

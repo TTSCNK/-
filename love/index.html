@@ -1,0 +1,77 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>表单测试</title>
+        <style>
+        .cs{
+            background-color:black;
+            color: yellow;
+            padding: 10px;
+           
+        }
+        </style>
+        <script>
+        window.onload=function() {
+	       
+	        
+            
+        }
+        </script>
+    </head>
+    <body>
+        
+        
+        
+        <div style="width:500px;background-color:yellow;margin:0 auto;padding:10px;">
+        <h3>GET,POST传输测试</h3>
+
+        提交表单的传输方式:<select class="tjbdfs">
+            <option value="GET">GET</option>
+            <option value="POST">POST</option>
+        </select>
+        <br/>
+        提交表单的 地址 路径:<input type="text" class="url"/>
+        <br/>
+        提交表单参数( , )隔开:<input type="text" class="text"/>
+        <br/>
+        <br/>
+        <input onclick="cj()" type="submit"  value="生成表单">
+        </div>
+
+        <hr/>
+
+        <div style="width:500px;background-color:yellow;margin:0 auto;padding:10px;">
+            <div class="tjbd"></div>
+            <div class="cs">QwQ ! 自己拯救自己!</div>
+        </div>
+        
+        <script>
+        var jd=document.getElementsByClassName("tjbd");
+        var tjbdfs=document.getElementsByClassName("tjbdfs");
+        var text=document.getElementsByClassName("text");
+        var url=document.getElementsByClassName("url");
+        //alert(tjbdfs[0].value);
+        //创建表单框架
+	    
+	    
+	    
+	        function cj(){
+	            jd[0].innerHTML='<form method="'+tjbdfs[0].value+'" class="tjbd" action="'+url[0].value+'"></form>';
+	             jd[1].innerHTML='';//初始化表单
+	             document.getElementsByClassName("cs")[0].innerHTML="";
+	             document.getElementsByClassName("cs")[0].innerHTML+="传输方式:"+tjbdfs[0].value+"<br/>传输“文件”地址路径:"+url[0].value+"<br/>";
+	             //alert(text[0].value);
+	             var txt=text[0].value;
+	             var txt=txt.split(",");
+	             for(var i=0;i<txt.length;i++){
+	                 document.getElementsByClassName("cs")[0].innerHTML+=tjbdfs[0].value+"表单值:"+txt[i]+"<br/>";
+	                 //console.log(txt[i]);
+	                 jd[1].innerHTML+=txt[i]+':<input type="text" class="text" name="'+txt[i]+'"/><br/>';
+	             }
+	             //alert(txt.length);
+	             jd[1].innerHTML+='<input type="submit"  value="提交">';
+	        }
+	     
+        </script>
+    </bodyy>
+</html>

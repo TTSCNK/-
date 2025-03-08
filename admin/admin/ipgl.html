@@ -1,0 +1,219 @@
+<!--
+樱花表白墙制作人: 樱振宇
+制作人QQ: 3152680200
+-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>IP管理</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			html,body{
+				height: 100%;
+				background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%);
+			}
+
+			.ipkj{
+				padding: 10px 60px;
+				margin: 20px auto 0;
+				width: 80%;
+				height: 80%;
+				border: 1px seashell solid;
+			}
+
+			.ipsz{
+				padding: 10px 60px;
+				margin: 20px auto 0;
+				width: 80%;
+				border: 1px seashell solid;
+				text-align: center;
+				margin: 0 auto;
+				/*height: 100%;*/
+			}
+
+			.ip {
+				margin-bottom: 10px;
+				padding: 10px;
+				background-color: aliceblue;
+				border-radius: 15px;
+			}
+
+			.ip p {
+				font-size: 18px;
+				font-weight: 900;
+			}
+
+			button {
+				border-top: 1px #000 solid;
+				padding: 10px;
+				border-radius: 15px;
+				font-weight: 900;
+			}
+			.szan{
+				font-size: 22px;
+			}
+			.fjip {
+				font-size: 18px;
+				overflow: hidden;
+				background-color: rgba(0, 0, 0, 0.6);
+				position: fixed;
+				width: 100%;
+				height: 0;
+				top: 0;
+			}
+
+			.fj_ip {
+				padding: 10px;
+				border-radius: 10px;
+				background-image: linear-gradient(to top, #cfd9df 0%, #e2ebf0 100%);
+				width: 500px;
+				margin: 100px auto;
+			}
+
+			.fj_ip p {
+				font-weight: 900;
+			}
+
+			textarea {
+				width: 100%;
+				height: 500px;
+				font-weight: 900;
+				font-size: 20px;
+			}
+		</style>
+		<script>
+			function ajax(url,yingzhenyu,sakura){
+		       var ajax = new XMLHttpRequest();
+		       ajax.open('GET',url, true);
+			   ajax.send(); //发送请求
+			   ajax.onreadystatechange = function(){
+				    if (ajax.readyState == 4) {
+					if (ajax.status == 200) {
+						var ajax_fhz = ajax.responseText;
+						yingzhenyu(ajax_fhz);
+				  	}else{
+						sakura();
+			       	}
+		       		}
+				}
+		    }
+
+
+			window.onload = function() {
+/*
+				var ipkj = document.getElementById("ip-kj");
+				var kjgd=  window.screen.availHeight-100;
+				ipkj.style.height=kjgd+"px";
+*/
+				var ipkj = document.getElementById("ipkj");
+				ipkj.innerHTML = "<div class='ip'><p style='text-align: center;'>正在加载记录IP地址，请稍等...</p></div>";
+				ajax('../api/yzy/ipjl.php?zx=0',function(ajax_fhz){
+					ipkj.innerHTML = ajax_fhz;
+		   		},function(){alert("QWQ执行操作失败！！！");});
+/*				ajax.open('GET', '../api/yzy/ipjl.php?zx=0', true);
+				ajax.send(); //发送请求
+				ajax.onreadystatechange = function() {
+					if (ajax.readyState == 4) {
+						if (ajax.status == 200) {
+							var ajax_fhz = ajax.responseText;
+							ipkj.innerHTML = ajax_fhz;
+						} else {
+							ipkj.innerHTML = "<div class='ip'><p style='text-align: center;'>加载记录的IP失败!!!</p></div>";
+						}
+					}
+				}
+*/
+			};
+		</script>
+	</head>
+	<body>
+		<div class="fjip">
+			<div class="fj_ip">
+				<p>封禁IP：</p>
+				<textarea id="fjip" style="resize: none;"
+					placeholder="多个IP需要用“|”符号来分隔开,例如这样写: 192.168.0.0|192.168.0.1|..."></textarea>
+				<p style="text-align: center;">
+					<button onclick="fjipbc();">保存需要封禁IP地址</button> <button onclick="fjip(0);">返回IP记录界面</button>
+				</p>
+			</div>
+		</div>
+		<div class="ipkj" id="ipkj" style="overflow-y:scroll;">
+			<div class="ip">
+				<p>记录IP地址：127.0.0.1
+				<p>记录昵称：樱振宇</p>
+				<p>记录时间：0000年00月00日 00:00:00</p>
+			</div>
+		</div>
+		<div class="ipsz">
+			<button class="szan" onclick="yingzhenyu();">刷新一下记录IP</button>
+			<button class="szan" onclick="qk();">清空所有记录IP</button>
+			<button class="szan" onclick="sjjg();">设置IP发布间隔</button>
+			<button class="szan" onclick="fjip(1);">封禁单个IP地址</button>
+		</div>
+		<script>
+			function fjipbc(){
+				var fjip = document.getElementById("fjip");
+				ajax('../api/yzy/ipjl.php?zx=3&fjipdz=' + fjip.value,function(ajax_fhz){
+					alert(ajax_fhz);
+			   	},function(){alert("封禁IP保存失败！！！");});
+			}
+
+			function sjjg() {
+				var jgsj = prompt('请输入每个IP间隔多少时间发布一次内容!默认0(分钟)：');
+				if(jgsj!=null){
+					ajax('../api/yzy/ipjl.php?zx=2&jg=' + Number(jgsj),function(ajax_fhz){
+						alert(ajax_fhz);
+			   		},function(){alert("IP间隔操作设置失败！！！");});
+				}
+			}
+
+			function qk() {
+				var ipkj = document.getElementById("ipkj");
+				ajax('../api/yzy/ipjl.php?zx=1',function(ajax_fhz){
+						if (ajax_fhz == "记录IP清空成功！") {
+						ipkj.innerHTML = "";
+						alert(ajax_fhz);
+						} else {
+							alert(ajax_fhz);
+						}
+			   	},function(){alert("IP清空操作失败！！！");});
+			}
+
+			function yingzhenyu() {
+				var ipkj = document.getElementById("ipkj");
+				ipkj.innerHTML = "<div class='ip'><p style='text-align: center;'>正在加载记录IP地址，请稍等...</p></div>";
+				ajax('../api/yzy/ipjl.php?zx=0',function(ajax_fhz){
+					ipkj.innerHTML = ajax_fhz;
+		   		},function(){
+		   			ipkj.innerHTML = "<div class='ip'><p style='text-align: center;'>加载记录的IP失败！</p></div>";
+		   		});
+
+			}
+
+			function fjip(yzy) {
+				var hqjd = document.getElementsByClassName('fjip')[0];
+				if (yzy == 0) {
+					hqjd.style.height = "0";
+				}else{
+					hqjd.style.height = "100%";
+					var fjip = document.getElementById("fjip");
+					ajax('../api/yzy/ipjl.php?zx=4',function(ajax_fhz){
+						if(ajax_fhz=="<div class='ip'><p style='text-align: center;'>没有操作权限！</p></div>") {
+							hqjd.style.height = "0";
+							alert("没有操作权限！");
+						}else{
+							fjip.value=ajax_fhz;
+						}
+
+			   		},function(){alert("获取历史封禁IP失败!");hqjd.style.height = "0";});
+
+				}
+			}
+		</script>
+	</body>
+</html>

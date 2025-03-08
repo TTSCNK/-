@@ -1,0 +1,96 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+   <!--meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" -->
+    <title>表白页面生成</title>
+	<style>
+	html{
+		background: url(http://api.sakura.gold/ksfjtp) no-repeat;background-size:100% 100%;background-attachment:fixed;
+		}
+		#xhn-jy{
+		background: rgba(255, 255, 255, 0.65);
+		}
+		#xhn-jy{
+			margin:0 auto;
+			padding:20px;
+			//background-color: antiquewhite;
+			width: 500px;
+		}
+		#options,#editBox,#xhn-jy{
+			font-size: 24px;
+		}
+		#an{
+			font-size: 24px;
+			margin:0 180px;
+			padding:0 20px;
+			font-weight: 900;
+		}
+	</style>
+</head>
+<body>
+    
+    <form action="1.html" id="xhn-jy" method="get">
+		<h2>表白页面生成</h2>
+        <div id="love">
+		对方名字：<input type="text" id="editBox" name="name" required>
+        
+		</div>
+        <br>
+        <label for="options">选 择 模 板 : </label>
+        <select id="options"  onchange="jt()">
+            <option value="1.html">动态爱心</option>
+            <option value="1-1.html">动态爱心悬浮文字</option>
+            <option value="2.html">烟花表白PC浏览器</option>
+			<option value="3.html">跳动的爱心</option>
+			<option value="4.html">爱心和文字PC浏览器</option>
+			<option value="5.html">流星雨和爱心PC浏览器</option>
+			<option value="6.html">樱花雨表白</option>
+			<option value="7.html">跨年表白</option>
+			<option value="3d.html">3D立方</option>
+        </select>
+        <br><br>
+        
+        <input id="an" type="submit" value="提交生成">
+		<hr/>
+		<p>选择模板输入相关消息提交生成就可以了，进入生成页面后可以通过浏览器分享把生成的页面分享给别人！</p>
+		<p>带PC浏览器的，说明只有电脑网页可以看到展示的效果！</p>
+		<p>表白墙：<a href="http://love.sakura.gold/">http://love.sakura.gold/</a></p>
+    </form>
+	
+	
+	<script>
+		function jt(){
+			const love = document.getElementById('love'); 
+			const textElement = document.getElementById('options'); 
+			if(textElement.value=="1.html"){
+				love.innerHTML='对方名字：<input type="text" id="editBox" name="name" required>';
+			}else if(textElement.value=="1-1.html"){
+				love.innerHTML='对方名字：<input type="text" id="editBox" name="name" required>';
+			}else if(textElement.value=="2.html"){
+				love.innerHTML='对方名字：<input type="text" id="editBox" name="name" required>';
+			}else if(textElement.value=="3.html"){
+				love.innerHTML='对方名字：<input type="text" id="editBox" name="name" required>';
+			}else if(textElement.value=="4.html"){
+				love.innerHTML='对方名字：<input type="text" id="editBox" name="name" required><br>想说的话：<input type="text" id="editBox" name="love" required>';
+			}else if(textElement.value=="5.html"){name
+				love.innerHTML='对方名字：<input type="text" id="editBox" name="name" required>';
+			}else if(textElement.value=="3d.html"){name
+				love.innerHTML='对方QQ：<input type="text" id="editBox" name="name" required><br>自己QQ：<input type="text" id="editBox" name="nr" required>';
+			}else if(textElement.value=="6.html"){name
+				love.innerHTML='对方QQ：<input type="text" id="editBox" name="qq" required><br>对方名字：<input type="text" id="editBox" name="name" required><br>表白内容：<input type="text" id="editBox" name="namee" required>';
+			}else if(textElement.value=="7.html"){name
+				love.innerHTML='几秒后显示：<input type="text" height="300px" id="editBox" name="jm" required><br><br>输入表白内容：<textarea type="text" id="editBox" style="height:160px;" name="nr">樱振宇|新年快乐|凡是过往|皆为序章|福起新岁|万事顺遂|下一个365天|也要充满热爱</textarea><br>';
+			}
+			
+			// 获取表单元素
+			var form = document.getElementById('xhn-jy');
+			//alert(textElement.value);
+			// 更改表单的action属性
+			form.action = textElement.value;
+		}
+		
+	</script>
+</body>
+</html>

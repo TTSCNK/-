@@ -1,0 +1,87 @@
+.lo_ve{
+  border:1px #9E7A7A solid;
+  border-radius:6px;
+  overflow:hidden;
+  margin:10px auto;
+  width:350px;
+  background-color:#F8C3CD;
+  /*border:1px #000 solid;*/
+  }
+.lo_v_e{
+  border:1px #E16B8C solid;
+  margin:10px 0;
+  width:330px;
+  }
+.love_zero_xx{
+  color:#64363C;
+  font-weight:900;
+  padding:10px;
+  }
+.love_zero_bz{
+  font-weight:700;
+  margin-right:10px;
+  text-align:right;
+  color:#86473F;
+  font-size:12px
+  }
+.love_zero_ta{
+  font-weight:900;
+  padding-left:12px;
+  background-color:#E16B8C;
+  color:#fff;
+  }
+.love_two_bj{
+  font-weight:900;
+  color:#DB4D6D;
+  }
+.love_two_ta{
+  padding-left:12px;
+  color:#F7FCFE;
+  background-color:#E16B8C;
+  }
+.gonggao{
+  box-shadow:3px 3px 3px #888;
+  background-color:#fff;
+  width:330px;
+  padding:10px;
+  color:#64363C;
+  font-weight:900;
+  border:1px #B5495B solid;
+  border-radius:10px;
+  background-color:#FEDFE1;
+  margin:10px auto;
+  }
+.n-r{
+  font-weight:900;
+  padding:10px;
+  margin:10px auto;
+  /*height:180px;*/
+  width:330px;
+  background-color:#FEDFE1;
+  border:1px #E16B8C solid;
+  overflow:hidden;
+  color:red;
+  border-radius:10px;
+  }
+.love_two_img{
+  height:120px;
+  /*background-color:#000000;*/
+  background-size:100% 100%;
+  }
+.lovd_two_ta{
+  border-radius:8px;
+  color:#fff;
+  font-size:12px;
+  font-weight:900;
+  padding:5px;
+  border:1px #33FFFF solid;
+  background-color:red;
+  }
+.love_two_dzplyd{
+  font-size:12px;
+  text-align:center;
+  color:#000;
+  }
+.yd-xx{
+  font-size:16px;
+  }

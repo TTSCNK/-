@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+
+		<style type="text/css">
+
+			/*外边距 内边距 设置为0*/
+
+			*{
+
+				margin: 0;
+
+				padding: 0;
+
+			}
+
+			/*设置html背景*/
+
+			html{
+				background-color:#FFC0CB;
+				
+				height: 100%;width: 100%;
+				
+				/*background-image: url(https://api.ixiaowai.cn/api/api.php);
+
+				background-size:100% 100%;*/
+
+				}
+
+			/*定义动画name*/
+
+			@keyframes name{
+
+				100%{
+
+					transform: rotateX(380deg) rotateY(750deg);
+
+					/*元素围绕其 X或者Y进行旋转380度和390度 轴以给定的度数进行旋转*/
+
+				}
+
+			}
+
+			.box{
+
+				position: relative;/*位置被设置为 relative 的元素，可将其移至相对于其正常位置的地方，因此 "left:20" 会将元素移至元素正常位置左边 20 个像素的位置。*/
+
+				transform: rotateX(20deg) rotateY(30deg);
+
+				/*元素围绕其 X或者Y进行旋转20度和30度 轴以给定的度数进行旋转*/
+
+				width: 200px;
+
+				height:200px;
+
+				margin:300px auto;/*.bat外边距*/
+
+				/*border: 3px solid #FFC0CB;  边框*/
+
+				/*transition: all 5s; 所有元素  5s内执行完毕*/
+
+				transform-style: preserve-3d;
+
+				/*盒子程3d 父亲 表示所有子元素在3D空间中呈现。*/
+
+				animation: name 16s infinite;
+
+				/*调用动画name 16s转完 循环*/
+
+			}
+
+		/*小盒子*/
+
+			.box span{
+
+				/*backface-visibility: hidden ;
+
+				visible：为 backface-visibility 的默认值，表示反面可见hidden：表示反面不可见*/
+
+				/************************************/
+
+				position: absolute;
+
+				left: 50%;/*左*/
+
+				top: 50%;/*上*/
+
+				/*固定定位*/
+
+				
+
+				margin-left:-50px;
+
+				margin-top: -50px;
+
+				/*外边距 右 下*/
+
+				/****************调整小盒子位置*******************/
+
+				width: 100px;
+
+				height: 100px;
+
+				/*边框*/border: 1px solid  #000000;
+
+				
+
+			}
+
+			.box span img{width: 100%;height: 100%;}
+
+			/*设置图片大小*/
+
+			
+
+			/********************下面是调整小方体**************************/
+
+			.box span:nth-of-type(1){
+
+				transform:translateZ(50px);
+
+			}
+
+			.box span:nth-of-type(2){
+
+				transform:translateZ(-50px);
+
+			}
+
+			/*************************************************/
+
+			.box span:nth-of-type(3){
+
+				transform:translateX(-50px) rotateY(90deg);
+
+			}
+
+			.box span:nth-of-type(4){
+
+				transform:translateX(50px) rotateY(90deg);
+
+			}
+
+			/************************************************/
+
+			.box span:nth-of-type(5){
+
+				transform:translateY(50px) rotateX(90deg);
+
+			}
+
+			.box span:nth-of-type(6){
+
+				transform:translateY(-50px) rotateX(90deg);
+
+			}
+
+			
+
+			/*大盒子*/
+
+			.box div{
+				border: 1px solid #000;
+				
+				transition: all 2s;
+
+				opacity: 0.8;/*透明*/
+
+				/*backface-visibility: hidden ;
+
+				visible：为 backface-visibility 的默认值，表示反面可见hidden：表示反面不可见*/
+
+				/****************调整大盒子位置*******************/
+
+				position: absolute;
+
+				left: 50%;
+
+				top: 50%;
+
+				margin-left:-100px;
+
+				margin-top: -100px;
+
+				/***********************************/
+
+				width: 100%;
+
+				height: 100%;
+
+				
+
+			}
+
+		
+
+			.box div img{width: 100%;height: 100%;}
+
+			/*.box:hover div img{transform: rotate(50deg);}*/
+
+			.box div:nth-of-type(1){
+
+				transform:translateZ(100px);
+
+			}
+
+			.box div:nth-of-type(2){
+
+				transform:translateZ(-100px);
+
+			}
+
+			/*************************************************/
+
+			.box div:nth-of-type(3){
+
+				transform:translateX(-100px) rotateY(90deg);
+
+			}
+
+			.box div:nth-of-type(4){
+
+				transform:translateX(100px) rotateY(90deg);
+
+			}
+
+			/************************************************/
+
+			.box div:nth-of-type(5){
+
+				transform:translateY(100px) rotateX(90deg);
+
+			}
+
+			.box div:nth-of-type(6){
+
+				transform:translateY(-100px) rotateX(90deg);
+
+			}
+
+			
+
+		/*鼠标移动到后，大盒子改变前后距离*/
+
+			.box:hover div:nth-of-type(1){
+
+				transform: translateZ(200px);
+
+				opacity: 1;
+
+			}
+
+			.box:hover div:nth-of-type(2){
+
+				transform: translateZ(-200px);
+
+				opacity: 1;
+
+			}
+
+			.box:hover div:nth-of-type(3){
+
+				transform: translateX(-200px) rotateY(90deg);
+
+				opacity: 1;
+
+			}
+
+			.box:hover div:nth-of-type(4){
+
+				transform: translateX(200px) rotateY(90deg);
+
+				opacity: 1;
+
+			}
+
+			.box:hover div:nth-of-type(5){
+
+				transform: translateY(200px) rotateX(90deg);
+
+				opacity: 1;
+
+			}
+			
+			.box:hover div:nth-of-type(6){
+
+				transform: translateY(-200px) rotateX(90deg);
+
+				opacity: 1;
+
+			}
+
+			
+
+			
+
+			/*
+
+			translateX左右距离
+
+			translateY上下距离
+
+			translateZ前后距离
+
+	
+
+			rotateY立体旋转左有
+
+			rotateZ横屏左右旋转和rotate差不多
+
+			rotateX立体旋转上下
+
+			*/
+
+		   
+
+		</style>
+	</head>
+	<body>
+
+		<!-- 背景音乐 -->
+
+		<embed src="http://www.funnycxz.vip/yy/Sakura Tears.mp3" autostart="true" loop="true" hidden="true">
+
+		<div class="box">
+
+			<!-- 小盒子 -->
+
+			<span><img src="http://q1.qlogo.cn/g?b=qq&nk=3152680200&s=640" ></span>
+			
+			<span><img src="http://q1.qlogo.cn/g?b=qq&nk=3152680200&s=640" ></span>
+			
+			<span><img src="http://q1.qlogo.cn/g?b=qq&nk=3152680200&s=640" ></span>
+			
+			<span><img src="http://q1.qlogo.cn/g?b=qq&nk=3152680200&s=640" ></span>
+			
+			<span><img src="http://q1.qlogo.cn/g?b=qq&nk=3152680200&s=640" ></span>
+			
+			<span><img src="http://q1.qlogo.cn/g?b=qq&nk=3152680200&s=640" ></span>
+
+			<!-- 大盒子 -->
+
+			<div><img src="http://q1.qlogo.cn/g?b=qq&nk=3152680200&s=640" ></div>
+
+			<div><img src="http://q1.qlogo.cn/g?b=qq&nk=3152680200&s=640" ></div>
+
+			<div><img src="http://q1.qlogo.cn/g?b=qq&nk=3152680200&s=640" ></div>
+
+			<div><img src="http://q1.qlogo.cn/g?b=qq&nk=3152680200&s=640" ></div>
+
+			<div><img src="http://q1.qlogo.cn/g?b=qq&nk=3152680200&s=640" ></div>
+
+			<div><img src="http://q1.qlogo.cn/g?b=qq&nk=3152680200&s=640" ></div>
+
+		</div>
+	</body>
+</html>
+
+<script>
+// 获取当前页面的URL   l?name=1
+const url = window.location.href;
+
+// 创建一个URL对象（注意：这里仅用于演示，实际上可以直接使用window.location.search）
+// const urlObject = new URL(url);
+
+// 更直接的方法是使用window.location.search，它直接返回查询字符串（包括问号）
+const queryString = window.location.search;
+
+// 去掉查询字符串开头的问号（如果有的话）
+const cleanQueryString = queryString.replace(/^\?/, '');
+
+// 创建一个URLSearchParams对象来解析查询字符串
+const params = new URLSearchParams(cleanQueryString);
+
+const name = params.get('name'); // "JohnDoe"
+const nr = params.get('nr'); // "JohnDoe"
+
+// 获取页面上所有的img标签
+var images = document.getElementsByTagName('img');
+ 
+// 遍历所有的img标签
+for (var i = 0; i < images.length; i++) {
+    // 更改src属性
+    // 这里我们假设你要将所有的URL替换为一个新的URL
+    // 例如，对于小盒子，我们可以将URL的前缀更改为另一个地址
+    // 对于大盒子，我们也可以做类似的处理
+ 
+    // 检查img标签的父元素是span还是div，以决定如何更改URL
+    if (images[i].parentElement.tagName === 'SPAN') {
+        // 小盒子的新URL（这里只是一个示例，你需要替换成实际的新URL）
+        images[i].src = 'http://q1.qlogo.cn/g?b=qq&nk='+name+'&s=640';
+    } else if (images[i].parentElement.tagName === 'DIV') {
+        // 大盒子的新URL（同样，替换成实际的新URL）
+        images[i].src = 'http://q1.qlogo.cn/g?b=qq&nk='+nr+'&s=640';
+    }
+    
+}
+</script>
